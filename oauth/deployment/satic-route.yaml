@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: oauth2-example
+  description: oauth2-example
+  version: "0.1.0"
+x-kusk:
+  upstream:
+    service:
+      name: frontend-app-svc
+      namespace: default
+      port: 3000
+  auth:
+    scheme: oauth2
+    oauth2:
+      token_endpoint: https://$AUTH0_DOMAIN/oauth/token
+      authorization_endpoint: https://$AUTH0_DOMAIN/authorize
+      credentials:
+        client_id: $CLIENT_ID
+        client_secret: $CLIENT_SECRET
+      redirect_uri: /oauth2/callback
+      redirect_path_matcher: /oauth2/callback
+      signout_path: /oauth2/signout
+      forward_bearer_token: true
+      auth_scopes:
+        - openid
+        - profile
+        - email
+paths:
+  /:
+    get:
+      description: Returns GET data.
+      responses:
+        200:
+          description: Landing page
+          content:
+            text/html:
+              example: "Hello World!"
+  /user:
+    get:
+      description: Returns GET data.
+      responses:
+        200:
+          description: User page
+          content:
+            text/html:
+              example: "Hello World!"
