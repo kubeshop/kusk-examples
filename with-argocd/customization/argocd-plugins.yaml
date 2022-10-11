@@ -1,0 +1,7 @@
+data:
+ configManagementPlugins: |
+  - name: kusk-gateway
+    generate:
+      command: ["bash", "-c"]
+      args: ["kusk generate -i openapi.yaml"]
+    lockRepo: true

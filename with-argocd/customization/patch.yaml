@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/template/spec/containers/0/image
+  value: kubeshop/kusk-argocd:v1.3.3
+- op: replace
+  path: /spec/template/spec/initContainers/0/image
+  value: kubeshop/kusk-argocd:v1.3.3
