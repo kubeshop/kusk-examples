@@ -55,5 +55,9 @@ You should now have your domain protected with `https`.
 curl https://mydomain.com
 ```
 
+## Reference
+
+- https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/
+
 
 

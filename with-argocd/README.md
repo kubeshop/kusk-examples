@@ -1,7 +1,6 @@
 # Deploying APIs to production with ArogCD and Kusk Gateway
 
-This repository sets up ArgoCD to use Kusk to generate API resource manifests that ArgoCD will then apply to a Kubernetes cluster. To make that possible, Kusk needs to be added as a plugin to ArgoCD. This repository covers the steps to do that. 
-
+This repository sets up ArgoCD to use Kusk to generate API resource manifests that ArgoCD will then apply to a Kubernetes cluster. To make that possible, Kusk needs to be added as a plugin to ArgoCD. This repository covers the steps to do that.
 ### 1. Patching ArgoCD's deployment
 
 The `argocd-repo-server` deployment images need to be replaced by the `kubeshop/kusk-argocd` Docker image.
