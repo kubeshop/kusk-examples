@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app3
+  labels:
+    app: app3
+spec:
+  selector:
+    matchLabels:
+      app: app3
+  template:
+    metadata:
+      labels:
+        app: app3
+    spec:
+      containers:
+      - name: app3
+        image: httpd
+        ports:
+        - containerPort: 80
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "echo 'App3 served by NGINX through Kusk Gateway' > /usr/local/apache2/htdocs/app3"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app3-svc
+spec:
+  selector:
+    app: app3
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-app3
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /app3
+        pathType: Prefix
+        backend:
+          service:
+            name: app3-svc
+            port:
+              number: 80
+      

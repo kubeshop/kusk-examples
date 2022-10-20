@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: with-nginx
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+x-kusk:
+  upstream:
+    service: 
+      name: ingress-nginx-controller
+      namespace: ingress-nginx
+      port: 80
+paths:
+  /app1:
+    x-kusk: 
+      upstream:
+        service:
+          name: app1-svc
+          namespace: default
+          port: 80
+    get:
+      summary: App1
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /app2:
+    get:
+      summary: App2
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /app3:
+    x-kusk:
+    get:
+      summary: App3
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
