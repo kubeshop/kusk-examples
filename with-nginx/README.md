@@ -1,14 +1,18 @@
-# Installing Kusk Gateway with NGinx
+# Installing Kusk Gateway with Nginx
 
-This example shows how to have an installation of Kusk Gateway with NGinx. This example might be helpful when transitioning from using NGinx's Ingress Controller to Kusk Gateway's, or if you want to reap the benefits of automating OpenAPI deployment with Kusk while still using your Ingress Controller of choice.
+This example shows how to have an installation of Kusk Gateway with Nginx. This example might be helpful when transitioning from using Nginx's Ingress Controller to Kusk Gateway's, or if you want to reap the benefits of automating OpenAPI deployment with Kusk while still using your Ingress Controller of choice.
 
 ## Setup
 
 This diagram shows how the requests are handled in this example when combining the two Ingress Controllers:
 
-![Kusk Gateway with NGINX](./assets/diagram.png)
+<p align="center">
+  <a target="_new" href="https://kubeshop.wistia.com/medias/dw06408oqz">
+    <img src="./assets/diagram.png" style="width:66%;height:auto">
+  </a>
+</p>
 
-Kusk Gateway receives all the incoming requests to the cluster. `Service 1` is a new application that is connected directly to Kusk Gateway while `Service 2` and `Service 3` are still connected to NGINX, so to access them the requests will be routed to Kusk Gateway. 
+Kusk Gateway receives all the incoming requests to the cluster. `Service 1` is a new application that is connected directly to Kusk Gateway while `Service 2` and `Service 3` are still connected to Nginx, so to access them the requests will be routed to Kusk Gateway. 
 
 ## How to run this example 
 
@@ -16,7 +20,7 @@ Kusk Gateway receives all the incoming requests to the cluster. `Service 1` is a
 
 Follow the installation instructions here: https://docs.kusk.io/quick-links/install
 
-### 2. Install NGINX Ingress Controller
+### 2. Install Nginx Ingress Controller
 
 ```sh
 helm upgrade --install ingress-nginx ingress-nginx \
