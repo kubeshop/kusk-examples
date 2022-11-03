@@ -4,12 +4,6 @@ info:
   version: 1.0.0
 servers:
   - url: http://localhost:8080
-x-kusk:
-  upstream:
-    service: 
-      name: ingress-nginx-controller
-      namespace: ingress-nginx
-      port: 80
 paths:
   /app1:
     x-kusk: 
@@ -28,6 +22,12 @@ paths:
               schema:
                 type: string
   /app2:
+    x-kusk:
+      upstream:
+        service: 
+          name: ingress-nginx-controller
+          namespace: ingress-nginx
+          port: 80
     get:
       summary: App2
       responses:
@@ -39,6 +39,11 @@ paths:
                 type: string
   /app3:
     x-kusk:
+      upstream:
+        service: 
+          name: ingress-nginx-controller
+          namespace: ingress-nginx
+          port: 80
     get:
       summary: App3
       responses:

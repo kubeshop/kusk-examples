@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-auth
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: basic-auth
+  template:
+    metadata:
+      labels:
+        app: basic-auth
+    spec:
+      containers:
+        - ports:
+            - containerPort: 8080
+          name: basic-auth
+          image: aabedraba/basic-auth:v1.0.0
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: basic-auth-svc
+  namespace: default
+spec:
+  selector:
+    app: basic-auth
+  ports:
+  - port: 8080
+    targetPort: 8080

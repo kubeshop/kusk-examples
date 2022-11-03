@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info: 
+  title: authenticated-api
+  version: 0.1.0
+  description: A simple authenticated API example to test Kusk Gateway with
+x-kusk:
+  upstream:
+    service:
+      name: basic-auth-svc
+      port: 8080
+      namespace: default
+  auth: 
+    custom: 
+      host:
+        hostname: basic-auth-svc.default
+        port: 8080
+paths: 
+  /:
+    get:
+      summary: Returns information of the running pod
+      responses:
+        '200':
+          description: Pod details
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Authorized
