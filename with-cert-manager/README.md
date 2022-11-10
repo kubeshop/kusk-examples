@@ -30,11 +30,11 @@ kusk ip
 
 ![DNS Records](./assets/dns-records.png)
 
-## 4. Install cert-manager in the cluster
+### 4. Install cert-manager in the cluster
 
 Follow the instruction from Cert Manager [installation guide](https://cert-manager.io/docs/installation/).
 
-## 5. Apply the Let's Encrypt Issuer
+### 5. Apply the Let's Encrypt Issuer
 
 In [`issuer.yaml`](./cert-manager/issuer.yaml):
 - Update `$EMAIL_ADDRESS` with your own email address
@@ -45,7 +45,7 @@ And apply the Issuer to the cluster:
 kubectl apply -f cert-manager/issuer.yaml
 kubectl wait --for=condition=ready issuer letsencrypt-prod --namespace default --timeout 2m
 ```
-## 6. Apply the Certificate for your domain
+### 6. Apply the Certificate for your domain
 
 In [`certificate.yaml`](./cert-manager/certificate.yaml):
 - Update `$DOMAIN_NAME` with the domain you used in step 2.
@@ -57,7 +57,7 @@ kubectl apply -f cert-manager/certificate.yaml
 kubectl wait --for=condition=ready certificate letsencrypt-cert --namespace default --timeout 2m
 ```
 
-## 7. Visit your TLS encrypted domain 
+### 7. Visit your TLS encrypted domain 
 
 You should now have your domain protected with `https`.
 
