@@ -39,7 +39,7 @@ And apply the Issuer to the cluster:
 kubectl apply -f cert-manager/issuer.yaml
 kubectl wait --for=condition=ready issuer letsencrypt-prod --namespace default --timeout 2m
 ```
-## 3. Apply the Certificate for your domain
+## 5. Apply the Certificate for your domain
 
 In [`certificate.yaml`](./cert-manager/certificate.yaml):
 - Update `$DOMAIN_NAME` with the domain you used in step 2.
@@ -51,7 +51,7 @@ kubectl apply -f cert-manager/certificate.yaml
 kubectl wait --for=condition=ready certificate letsencrypt-cert --namespace default --timeout 2m
 ```
 
-## 4. Visit your TLS encrypted domain 
+## 6. Visit your TLS encrypted domain 
 
 You should now have your domain protected with `https`.
 
