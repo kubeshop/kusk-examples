@@ -15,6 +15,10 @@ In Cloudflare for to **My Profile** -> **API Tokens** -> **Create Token** and cl
 
 Once the API key is created, copy it and add it to [`secret.yaml`](./cert-manager/secret.yaml) replacing `$CLOUDFLARE_API_TOKEN` by the token. 
 
+```sh
+kubectl apply -f cert-manager/secret.yaml
+```
+
 ### 3. Add an `A` record in your DNS
 
 Get the Kusk LoadBalancer's IP address and add an `A` record in your DNS records in Cloudflare: 
