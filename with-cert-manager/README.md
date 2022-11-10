@@ -24,7 +24,11 @@ kusk ip
 
 ![DNS Records](./assets/dns-records.png)
 
-## 3. Apply the Let's Encrypt Issuer
+## 3. Install cert-manager in the cluster
+
+Follow the instruction from Cert Manager [installation guide](https://cert-manager.io/docs/installation/).
+
+## 4. Apply the Let's Encrypt Issuer
 
 In [`issuer.yaml`](./cert-manager/issuer.yaml):
 - Update `$EMAIL_ADDRESS` with your own email address
