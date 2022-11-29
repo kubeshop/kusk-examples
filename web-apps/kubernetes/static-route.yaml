@@ -1,0 +1,13 @@
+apiVersion: gateway.kusk.io/v1alpha1
+kind: StaticRoute
+metadata:
+  name: web-app-sample
+spec:
+  upstream:
+    service:
+      name: web-app-svc
+      namespace: default
+      port: 3000
+  fleet:
+    name: kusk-gateway-envoy-fleet
+    namespace: kusk-system
