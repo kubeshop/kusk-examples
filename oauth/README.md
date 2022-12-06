@@ -7,7 +7,13 @@ It uses Auth0 as the auth provider.
 ## 1. Deploy the frontend application 
 
 ```sh
-kubectl apply -f deployment/frontend-app.yaml
+kubectl create deployment oauth-app --image=kubeshop/kusk-oauth-app-example:v1.0.0
+kubectl expose deployment hello-world --name oauth-app-svc --port=3000
+```
+
+```sh title="Expected output"
+deployment.apps/oauth-app created
+service/oauth-app-svc exposed
 ```
 
 ## 2. Configuring Auth0
@@ -37,7 +43,7 @@ Update [`static-route.yaml`](./deployment/satic-route.yaml):
 Apply the definition with: 
 
 ```sh 
-kusk deploy -i deployment/static-route.yaml
+kubectl apply -f deployment/static-route.yaml
 ```
 
 ## 4. Update EnvoyFleet ConfigMap

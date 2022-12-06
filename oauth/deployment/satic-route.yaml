@@ -1,12 +1,14 @@
-openapi: 3.0.0
-info:
-  title: oauth2-example
-  description: oauth2-example
-  version: "0.1.0"
-x-kusk:
+apiVersion: gateway.kusk.io/v1alpha1
+kind: StaticRoute
+metadata:
+  name: web-app-sample
+spec:
+  fleet:
+    name: kusk-gateway-envoy-fleet
+    namespace: kusk-system
   upstream:
     service:
-      name: frontend-app-svc
+      name: oauth-app-svc
       namespace: default
       port: 3000
   auth:
@@ -25,22 +27,3 @@ x-kusk:
         - openid
         - profile
         - email
-paths:
-  /:
-    get:
-      description: Returns GET data.
-      responses:
-        200:
-          description: Landing page
-          content:
-            text/html:
-              example: "Hello World!"
-  /user:
-    get:
-      description: Returns GET data.
-      responses:
-        200:
-          description: User page
-          content:
-            text/html:
-              example: "Hello World!"
