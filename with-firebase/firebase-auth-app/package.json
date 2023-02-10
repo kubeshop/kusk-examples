@@ -1,0 +1,20 @@
+{
+  "name": "with-firebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase-admin": "^11.5.0"
+  },
+  "devDependencies": {
+    "firebase": "^9.17.1"
+  }
+}

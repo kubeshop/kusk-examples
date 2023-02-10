@@ -6,17 +6,16 @@ info:
 x-kusk:
   upstream:
     service:
-      name: basic-auth-svc
+      name: hello-world-svc
       port: 8080
       namespace: default
   auth: 
     custom: 
       host:
-        hostname: basic-auth-svc.default
-        port: 8080
-      path_prefix: /login
+        hostname: firebase-auth-svc.default
+        port: 3000
 paths: 
-  /:
+  /hello:
     get:
       summary: Returns information of the running pod
       responses:

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebase-auth
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: firebase-auth
+  template:
+    metadata:
+      labels:
+        app: firebase-auth
+    spec:
+      containers:
+      - name: firebase-auth
+        image: YOUR_DOCKER_IMAGE
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: firebase-auth-svc
+  namespace: default
+spec:
+  selector:
+    app: firebase-auth
+  ports:
+  - port: 3000
+    targetPort: 3000
